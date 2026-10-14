@@ -8,3 +8,8 @@
 
 .profile-photo-frame{position:absolute;inset:0;border-radius:50%;overflow:hidden}.profile-photo{position:absolute;width:185%;height:auto;max-width:none;left:-40%;top:-12%}.profile-badge{z-index:1}.nav-name{max-width:290px;text-align:right;line-height:1.5}
 @media(max-width:600px){nav{gap:14px}.nav-name{max-width:165px;font-size:10px}}
+
+.navigation{gap:20px}.wordmark{font-size:20px;letter-spacing:-.6px;line-height:1.35;max-width:440px}.navigation nav{flex-shrink:0}
+@media(max-width:600px){.wordmark{font-size:14px;letter-spacing:-.2px;max-width:235px}.navigation{gap:15px}}
+
+.project-card{display:flex;flex-direction:column}.project-heading{min-height:66px}.project-heading h3{font-size:22px;line-height:1.35}.project-date{font-size:10px;color:#888b80;margin-top:6px}.project-description{flex:1}.repository-link{display:flex;justify-content:space-between;font-size:10px;padding-top:13px;color:#647853}.project-highlights{padding-left:18px;font-size:12px;line-height:1.8;color:#63705e;margin:20px 0}.project-highlights li+li{margin-top:8px}.dialog-repository{display:inline-block;background:#243c32;color:#edf0e3;padding:12px 18px;border-radius:8px;font-size:12px}dialog{max-height:90vh;overflow:auto}dialog h2{font-size:32px;line-height:1.2}.project-art{flex-shrink:0}.project-art>span{line-height:1}@media(max-width:600px){.project-heading{min-height:0}}
