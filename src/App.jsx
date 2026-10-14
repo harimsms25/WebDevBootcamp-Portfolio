@@ -10,6 +10,16 @@ const projects = [
 
 export default function App() {
   const [selected, setSelected] = useState(null)
+  const [copyStatus, setCopyStatus] = useState('')
+  const email = 'mmeenaks@terpmail.umd.edu'
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopyStatus('Email address copied!')
+    } catch {
+      setCopyStatus('Copy unavailable. Select the email address below to copy it manually.')
+    }
+  }
   useEffect(() => {
     if (!selected) return
     const onKey = (event) => { if (event.key === 'Escape') setSelected(null) }
@@ -32,7 +42,7 @@ export default function App() {
           <div className="project-grid">{projects.map((project) => <article className={`project-card ${project.color}`} key={project.name}><div className="card-top"><span>{project.number} / {project.category}</span><button aria-label={`View ${project.name} project details`} onClick={() => setSelected(project)}>↗</button></div><div className="project-art" aria-hidden="true"><span>{project.icon}</span><div className="art-line" /></div><div className="project-heading"><h3>{project.name}</h3></div><div className="tags">{project.languages.map((language) => <span key={language}>{language}</span>)}</div><p className="frameworks">{project.tools}</p><p className="project-description">{project.description}</p><button className="project-link" onClick={() => setSelected(project)}>Explore project <span>↗</span></button></article>)}</div>
         </section>
       </main>
-      <footer id="contact"><div className="footer-main"><div><p className="eyebrow">CONTACTS & LINKS</p><h2>Good things start<br />with a conversation<span>↗</span></h2></div><div className="contact-links"><a href="mailto:mmeenaks@terpmail.umd.edu">Email me <span>↗</span></a><a href="https://github.com/harimsms25" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/meenakshi-sundaram-meenakshi-sundaram-1a9564435/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Meenakshi Sundaram Meenakshi Sundaram</span><span>Made with curiosity & React.</span><a href="#home">Back to top ↑</a></div><p className="sample-note">Sample portfolio · Replace the name, profile, projects, and contact links with your own.</p></footer>
+      <footer id="contact"><div className="footer-main"><div><p className="eyebrow">CONTACTS & LINKS</p><h2>Good things start<br />with a conversation<span>↗</span></h2></div><div className="contact-links"><a href="mailto:mmeenaks@terpmail.umd.edu">Email me <span>↗</span></a><a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`} target="_blank" rel="noreferrer">Open in Gmail <span>↗</span></a><button className="copy-email" onClick={copyEmail}>Copy email address <span aria-hidden="true">⧉</span></button><p className="email-address">{email}</p><p className="copy-status" role="status">{copyStatus}</p><a href="https://github.com/harimsms25" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/meenakshi-sundaram-meenakshi-sundaram-1a9564435/?isSelfProfile=true" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Meenakshi Sundaram Meenakshi Sundaram</span><span>Made with curiosity & React.</span><a href="#home">Back to top ↑</a></div><p className="sample-note">Sample portfolio · Replace the name, profile, projects, and contact links with your own.</p></footer>
       {selected && <div className="modal-backdrop" onClick={() => setSelected(null)}><dialog open aria-labelledby="dialog-title" ref={(element) => { if (element) element.querySelector('button')?.focus() }} onClick={(event) => event.stopPropagation()}><button className="close-modal" onClick={() => setSelected(null)} aria-label="Close project details">×</button><p className="eyebrow">{selected.category} / SAMPLE PROJECT</p><h2 id="dialog-title">{selected.name}</h2><p>{selected.detail}</p><div className="tags">{selected.languages.map((language) => <span key={language}>{language}</span>)}</div><p className="frameworks">{selected.tools}</p><p className="dialog-note">Replace this sample with your project story, screenshots, and live demo link.</p></dialog></div>}
     </div>
   )
