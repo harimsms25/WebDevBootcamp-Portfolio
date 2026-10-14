@@ -5,3 +5,6 @@
 @media(max-width:600px){.introduction h1{font-size:36px;letter-spacing:-1.4px}.availability{font-size:8px}.hero-topline>span:first-child{flex-shrink:0}}
 
 .contact-links .copy-email{display:flex;justify-content:space-between;width:100%;padding:10px 0;border:0;border-bottom:1px solid #ffffff20;background:transparent;color:inherit;font-size:12px;text-align:left}.contact-links .copy-email:hover{color:#d3e6a4}.email-address{font-size:11px;color:#b1bdae;margin-top:12px;user-select:all;overflow-wrap:anywhere}.copy-status{font-size:11px;color:#d3e6a4;line-height:1.6;margin-top:6px}
+
+.profile-photo-frame{position:absolute;inset:0;border-radius:50%;overflow:hidden}.profile-photo{position:absolute;width:185%;height:auto;max-width:none;left:-40%;top:-12%}.profile-badge{z-index:1}.nav-name{max-width:290px;text-align:right;line-height:1.5}
+@media(max-width:600px){nav{gap:14px}.nav-name{max-width:165px;font-size:10px}}

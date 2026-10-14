@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import profilePhoto from './assets/profile.jpg'
 
 const projects = [
   { number: '01', name: 'Orbit', category: 'PRODUCTIVITY', languages: ['JavaScript', 'CSS'], tools: 'React · Local storage', description: 'A calmer place to plan your day. Tasks, priorities, and progress, thoughtfully brought together.', detail: 'Sample concept: a personal productivity dashboard with daily planning, task organization, and progress views.', color: 'green', icon: '◉' },
@@ -28,12 +29,12 @@ export default function App() {
   }, [selected])
   return (
     <div className="site-shell">
-      <header className="navigation"><a className="wordmark" href="#home">adc<span>®</span></a><nav aria-label="Main navigation"><a href="#work">Selected work</a><a href="#contact">Let’s connect <span>↗</span></a></nav></header>
+      <header className="navigation"><a className="wordmark" href="#home">adc<span>®</span></a><nav aria-label="Main navigation"><a href="#work">Selected work</a><a className="nav-name" href="#home">Meenakshi Sundaram Meenakshi Sundaram</a></nav></header>
       <main>
         <section className="hero" id="home" aria-labelledby="hero-title">
           <div className="hero-topline"><span>PERSONAL PORTFOLIO</span><span className="availability"><i /> Meenakshi Sundaram Meenakshi Sundaram</span></div>
           <div className="hero-content">
-            <div className="profile" role="img" aria-label="Sample profile placeholder with initials ADC"><div className="profile-initials">adc.</div><span className="profile-label">YOUR PHOTO HERE</span><div className="profile-badge">✦</div></div>
+            <div className="profile"><div className="profile-photo-frame"><img className="profile-photo" src={profilePhoto} alt="Meenakshi Sundaram Meenakshi Sundaram" /></div><div className="profile-badge" aria-hidden="true">✦</div></div>
             <div className="introduction"><p className="eyebrow">HELLO, I’M</p><h1 id="hero-title">Meenakshi Sundaram Meenakshi Sundaram<span>.</span></h1><p className="intro-copy">I turn curious ideas into thoughtful digital experiences.</p><a className="hero-link" href="#work">Explore my work <span>↓</span></a></div>
           </div>
           <div className="hero-bottom"><span>DEVELOPER. MAKER. CURIOUS HUMAN.</span><span>SCROLL TO DISCOVER ↓</span></div>
